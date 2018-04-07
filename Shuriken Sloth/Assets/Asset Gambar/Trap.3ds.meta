@@ -191,6 +191,42 @@ ModelImporter:
     4300066: Componen29
     4300068: Componen30
     4300070: Component2
+    6400000: Componen01
+    6400002: Componen02
+    6400004: Componen03
+    6400006: Componen04
+    6400008: Componen05
+    6400010: Componen06
+    6400012: Componen07
+    6400014: Componen08
+    6400016: Componen09
+    6400018: Componen10
+    6400020: Componen11
+    6400022: Componen12
+    6400024: Componen13
+    6400026: Componen14
+    6400028: Componen15
+    6400030: Componen16
+    6400032: Componen17
+    6400034: Componen18
+    6400036: Componen19
+    6400038: Componen20
+    6400040: Componen21
+    6400042: Componen22
+    6400044: Componen23
+    6400046: Componen24
+    6400048: Componen25
+    6400050: Componen26
+    6400052: Componen27
+    6400054: Componen28
+    6400056: Componen29
+    6400058: Componen30
+    6400060: Component1
+    6400062: Component2
+    6400064: Mesh01
+    6400066: Mesh02
+    6400068: Model
+    6400070: skpB03D1
   materials:
     importMaterials: 1
     materialName: 0
@@ -220,7 +256,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
