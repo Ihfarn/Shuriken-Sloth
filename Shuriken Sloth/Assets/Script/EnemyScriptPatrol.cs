@@ -7,6 +7,9 @@ public class EnemyScriptPatrol : MonoBehaviour {
     public float waktu;
     public float speed;
     public Rigidbody rb;
+   public float health;
+
+  
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
@@ -26,4 +29,17 @@ public class EnemyScriptPatrol : MonoBehaviour {
         speed *= -1;
         StartCoroutine(wait(waktu));
     }
+    private void OnTriggerEnter(Collider collision)
+    {
+       if (collision.gameObject.tag == "shuriken")
+        {
+            if (health == 0) {
+
+                Destroy(gameObject);
+                return;
+            } health -= 1;
+        }
+            
+    }
+
 }
