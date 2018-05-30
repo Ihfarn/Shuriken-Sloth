@@ -18,7 +18,7 @@ public class EnemyScriptPatrol : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        rb.velocity = new Vector3(speed, 0f, 0f);
+        rb.velocity = new Vector3(0f, 0f, speed);
         
 
     }
