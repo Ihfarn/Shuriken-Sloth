@@ -95,9 +95,13 @@ public class MasterKarakter : MonoBehaviour
         {
             Instantiate(Pelurunya, PosisiPeluru.transform.position, PosisiPeluru.transform.rotation);
             attack = Input.GetKeyDown(KeyCode.Space);
-            
+            animator.SetBool("attack", attack);
         }
-        animator.SetBool("attack", attack);
+
+        else
+        {
+            animator.SetBool("attack", attack);
+        }
     }
 }
 
