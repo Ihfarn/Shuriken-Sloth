@@ -10,7 +10,7 @@ public class MainMenuScript : MonoBehaviour {
     public Canvas CanvasOptions;
     public Canvas CanvasMainMenu;
 
-    public Toggle testqntl;
+    public Toggle testToggle;
 
     private void Start()
     {
