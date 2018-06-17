@@ -2,34 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 
 public class Pause : MonoBehaviour
 {
-
-    public Transform canvas;
-
+ public static bool GameIsPaused = false;
+    public GameObject pauseMenuUI;
     // Update is called once per frame
-
-    public void Update()
+       void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-
-            if (canvas.gameObject.activeInHierarchy == false)
+            if (GameIsPaused)
             {
-                canvas.gameObject.SetActive(true);
-                Time.timeScale = 0;
+                Resume();
             }
             else
             {
-                canvas.gameObject.SetActive(false);
-                Time.timeScale = 1;
+                PauseGame();
 
             }
-
         }
     }
+   public void Resume ()
+    {
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+    }
+
+    public void PauseGame ()
+    {
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        GameIsPaused = true;
+    }
+    public void LoadMenu ()
+    {
+        SceneManager.LoadScene("Main Menu");
+        
+    }
 }
+    

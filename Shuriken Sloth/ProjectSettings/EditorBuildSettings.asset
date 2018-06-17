@@ -7,7 +7,16 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scene/Main Menu.unity
-    guid: 432c930c53353404b9b186d719d2dc8b
+    guid: 466a91e8e5ec3244e873ec83ef07fea9
   - enabled: 1
     path: Assets/Scene/Game Scene.unity
+    guid: 54de926a3d7547440bae718a8c2f2c6d
+  - enabled: 1
+    path: Assets/Scene/In Game UI Pause Scene.unity
+    guid: 9bbf773c0becda643834780cc20aeeec
+  - enabled: 0
+    path: 
+    guid: 432c930c53353404b9b186d719d2dc8b
+  - enabled: 0
+    path: 
     guid: 796d137d280cfa04bb16b0de658f5005
