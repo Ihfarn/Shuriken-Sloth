@@ -39,7 +39,22 @@ public class EnemyScriptPatrol : MonoBehaviour {
                 return;
             } health -= 1;
         }
-            
-    }
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("aaa");
+            MasterKarakter.instance.hp -= 1;
+            Destroy(MasterKarakter.instance.HPgambar[MasterKarakter.instance.hp].gameObject);
+        }
 
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("aaa");
+            MasterKarakter.instance.hp -= 1;
+            Destroy(MasterKarakter.instance.HPgambar[MasterKarakter.instance.hp].gameObject);
+           
+        }
+    }
 }

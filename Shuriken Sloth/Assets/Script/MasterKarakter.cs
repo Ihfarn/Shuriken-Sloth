@@ -7,11 +7,19 @@ public class MasterKarakter : MonoBehaviour
     public GameObject Pelurunya;
     public GameObject PosisiPeluru;
 
+    public static MasterKarakter instance;
+        
+
     public float speed = 60;
     private bool run;
     private bool attack;
+    public int hp;
+    public GameObject[] HPgambar;
     Animator animator;
-
+    void Awake()
+    {
+        instance = this;
+    }
 
     // Use this for initialization
     void Start()
@@ -38,6 +46,12 @@ public class MasterKarakter : MonoBehaviour
         //Navigasi2();
         Navigasi();
         Tembak();
+        if (hp <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+
+        
     }
 
 
@@ -93,15 +107,24 @@ public class MasterKarakter : MonoBehaviour
         attack = false;
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(Pelurunya, PosisiPeluru.transform.position, PosisiPeluru.transform.rotation);
             attack = Input.GetKeyDown(KeyCode.Space);
-            animator.SetBool("attack", attack);
+            animator.Play("Idle Attack");
+            StartCoroutine(JedaTembak());
+         
         }
 
         else
         {
-            animator.SetBool("attack", attack);
+            animator.SetBool("attack", false);
         }
+    }
+
+    IEnumerator JedaTembak()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(Pelurunya, PosisiPeluru.transform.position, PosisiPeluru.transform.rotation);
+       
+
     }
 }
 

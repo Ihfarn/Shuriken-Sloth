@@ -22,7 +22,8 @@ public class TrapScript : MonoBehaviour {
         {
             waktujeda = 3f;
             Spikesindex = Random.Range(0, Spikes.Length);
-            Instantiate(Trap, Spikes[Spikesindex].position, Spikes[Spikesindex].rotation);
+            Instantiate(Trap, Spikes[Spikesindex].position, Spikes[Spikesindex].rotation) ;
+            Debug.Log("ju");
         }
     }
 

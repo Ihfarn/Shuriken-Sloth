@@ -5,7 +5,7 @@ using UnityEngine;
 public class MusicOnCamera : MonoBehaviour {
 
     public AudioClip bgmMusic;
-
+      
     private void Awake()
     {
         BGM.instance.PlayBGM(bgmMusic);

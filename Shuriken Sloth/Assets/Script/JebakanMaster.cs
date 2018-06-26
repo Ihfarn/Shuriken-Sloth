@@ -18,7 +18,9 @@ public class JebakanMaster : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player")
         {
-            Destroy(col.gameObject);
+            MasterKarakter.instance.hp -= 1;
+            Destroy( MasterKarakter.instance.HPgambar[MasterKarakter.instance.hp].gameObject);
+            //Destroy(col.gameObject);
         }
     }
 }
