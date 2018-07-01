@@ -6,10 +6,10 @@ public class MasterKarakter : MonoBehaviour
 {
     public GameObject Pelurunya;
     public GameObject PosisiPeluru;
-
+    public GameObject GameOver;
     public static MasterKarakter instance;
-        
 
+    public float turnSpeed = 10f;
     public float speed = 60;
     private bool run;
     private bool attack;
@@ -46,18 +46,18 @@ public class MasterKarakter : MonoBehaviour
         //Navigasi2();
         Navigasi();
         Tembak();
+        Putar();
         if (hp <= 0)
         {
-            Destroy(this.gameObject);
-        }
 
-        
+            GameOver.SetActive(true);
+        }
     }
 
 
     void Navigasi2()
     {
-        float movementSpeed = 10f ;
+        float movementSpeed = 10f;
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
 
@@ -73,7 +73,7 @@ public class MasterKarakter : MonoBehaviour
         run = false;
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(0, 0,speed * Time.deltaTime);
+            transform.Translate(0, 0, speed * Time.deltaTime);
             run = Input.GetKey(KeyCode.W);
             animator.SetBool("run", run);
         }
@@ -101,7 +101,7 @@ public class MasterKarakter : MonoBehaviour
             animator.SetBool("run", run);
         }
     }
-    
+
     void Tembak()
     {
         attack = false;
@@ -110,7 +110,7 @@ public class MasterKarakter : MonoBehaviour
             attack = Input.GetKeyDown(KeyCode.Space);
             animator.Play("Idle Attack");
             StartCoroutine(JedaTembak());
-         
+
         }
 
         else
@@ -119,6 +119,17 @@ public class MasterKarakter : MonoBehaviour
         }
     }
 
+    void Putar() {
+        if (Input.GetKey(KeyCode.Q)) {
+
+            transform.Rotate(0, -turnSpeed, 0);
+            //transform.Rotate(Vector3.up, turnSpeed* Time.deltaTime);
+        }
+        else if (Input.GetKey(KeyCode.E)) {
+
+            transform.Rotate(0, turnSpeed, 0);
+        }
+    }
     IEnumerator JedaTembak()
     {
         yield return new WaitForSeconds(0.5f);

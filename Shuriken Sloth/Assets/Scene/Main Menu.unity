@@ -220,7 +220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71f38151226564d40b77958a8c3cdcf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanvasOptions: {fileID: 0}
   CanvasMainMenu: {fileID: 96130816}
   testToggle: {fileID: 0}
 --- !u!1 &201751123
@@ -697,7 +696,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71f38151226564d40b77958a8c3cdcf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanvasOptions: {fileID: 0}
   CanvasMainMenu: {fileID: 96130816}
   testToggle: {fileID: 0}
 --- !u!4 &834736531
