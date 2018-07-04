@@ -11,11 +11,15 @@ public class MasterKarakter : MonoBehaviour
 
     public float turnSpeed = 10f;
     public float speed = 60;
-    private bool run;
+
+    public bool run;
     private bool attack;
     public int hp;
     public GameObject[] HPgambar;
     Animator animator;
+
+    public GameObject FinishText;
+
     void Awake()
     {
         instance = this;
@@ -25,6 +29,7 @@ public class MasterKarakter : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        FinishText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -76,6 +81,7 @@ public class MasterKarakter : MonoBehaviour
             transform.Translate(0, 0, speed * Time.deltaTime);
             run = Input.GetKey(KeyCode.W);
             animator.SetBool("run", run);
+
         }
         if (Input.GetKey(KeyCode.S))
         {
@@ -95,7 +101,7 @@ public class MasterKarakter : MonoBehaviour
             transform.Translate(-speed * Time.deltaTime, 0, 0);
             run = Input.GetKey(KeyCode.A);
             animator.SetBool("run", run);
-        }
+        } 
         else
         {
             animator.SetBool("run", run);
@@ -105,13 +111,21 @@ public class MasterKarakter : MonoBehaviour
     void Tembak()
     {
         attack = false;
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && run == false)
         {
             attack = Input.GetKeyDown(KeyCode.Space);
             animator.Play("Idle Attack");
             StartCoroutine(JedaTembak());
 
         }
+        else
+             if (Input.GetKeyDown(KeyCode.Space) && run == true)
+        {
+            attack = Input.GetKeyDown(KeyCode.Space);
+            animator.Play("Run Attack");
+            StartCoroutine(JedaTembak());
+        }
+
 
         else
         {
@@ -136,6 +150,19 @@ public class MasterKarakter : MonoBehaviour
         Instantiate(Pelurunya, PosisiPeluru.transform.position, PosisiPeluru.transform.rotation);
        
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Finish")
+
+        { FinishText.SetActive(true); }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Finish")
+
+        { FinishText.SetActive(true); }
     }
 }
 
